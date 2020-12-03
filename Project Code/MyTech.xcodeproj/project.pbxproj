@@ -83,8 +83,8 @@
 		4160607E26DBE016009B68F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4160607F26DBE016009B68F8 /* AddListView.swift */,
 				4160608026DBE016009B68F8 /* ContentView.swift */,
+				4160607F26DBE016009B68F8 /* AddListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 				DEVELOPMENT_TEAM = DYCJ8VNG33;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyTech/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +329,7 @@
 				DEVELOPMENT_TEAM = DYCJ8VNG33;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MyTech/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
