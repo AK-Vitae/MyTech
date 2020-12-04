@@ -8,6 +8,7 @@ import SwiftUI
 
 struct AddListView: View {
     // MARK: - PROPERTIES
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
     
     @State private var name: String = ""
@@ -57,7 +58,23 @@ struct AddListView: View {
                     
                     // MARK: - SAVE BUTTON
                     Button(action: {
-                        print("Save a new tech item")
+                        if self.name != ""{
+                            let tech = Tech(context: self.managedObjectContext)
+                            tech.name = self.name
+                            tech.techType = self.techType
+                            tech.dateAcquired = self.dateAcquired
+                            tech.serialNumber = self.serialNumber
+                            tech.productNumber = self.productNumber
+                            tech.modelNumber = self.modelNumber
+                            tech.text = self.text
+                            
+                            do {
+                                try self.managedObjectContext.save()
+                                print("New Tech: \(tech.name ?? ""), Tech Type: \(tech.techType ?? "")")
+                            } catch {
+                                print(error)
+                            }
+                        }
                     }) {
                         Text("Save")
                     } //: SAVE BUTTON

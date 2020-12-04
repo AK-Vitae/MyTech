@@ -7,8 +7,8 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="productNumber" optional="YES" attributeType="String"/>
         <attribute name="serialNumber" optional="YES" attributeType="String"/>
+        <attribute name="techType" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
-        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Tech" positionX="-63" positionY="-18" width="128" height="163"/>
