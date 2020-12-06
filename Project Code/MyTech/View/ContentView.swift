@@ -27,20 +27,38 @@ struct ContentView: View {
                         
                         Text(tech.techType ?? "Unknown")
                     }
-                }
+                } //: FOREACH
+                .onDelete(perform: deleteTech)
             } //: LIST
             .navigationBarTitle("My Tech", displayMode: .inline)
-            .navigationBarItems(trailing:
-                                    Button(action: {
-                                        self.showingAddListView.toggle()
-                                    }) {
-                                        Image(systemName: "plus")
-                                    } //: ADD BUTTON
-                                    .sheet(isPresented: $showingAddListView){
-                                        AddListView().environment(\.managedObjectContext, self.managedObjectContext)
-                                    }
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing:
+                Button(action: {
+                    self.showingAddListView.toggle()
+                }) {
+                    Image(systemName: "plus")
+                } //: ADD BUTTON
+                    .sheet(isPresented: $showingAddListView){
+                    AddListView().environment(\.managedObjectContext, self.managedObjectContext)
+                }
             )
         } //: NAVIGATION
+    }
+    
+    // MARK: - FUNCTIONS
+    
+    private func deleteTech(at offsets: IndexSet){
+        for index in offsets{
+            let tech = techs[index]
+            managedObjectContext.delete(tech)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
