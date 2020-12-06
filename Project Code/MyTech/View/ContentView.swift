@@ -11,13 +11,23 @@ struct ContentView: View {
     // MARK: - PROPERTIES
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @FetchRequest(entity: Tech.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Tech.name, ascending: true)]) var techs: FetchedResults<Tech>
+    
     @State private var showingAddListView: Bool = false
     
     // MARK: - BODY
     var body: some View {
         NavigationView{
-            List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                Text("Hello World")
+            List {
+                ForEach(self.techs, id: \.self) { tech in
+                    HStack{
+                        Text(tech.name ?? "Unknown")
+                        
+                        Spacer()
+                        
+                        Text(tech.techType ?? "Unknown")
+                    }
+                }
             } //: LIST
             .navigationBarTitle("My Tech", displayMode: .inline)
             .navigationBarItems(trailing:
@@ -37,7 +47,9 @@ struct ContentView: View {
 // MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return ContentView()
+            .environment(\.managedObjectContext, context)
             .previewDevice("iPhone 11 Pro")
     }
 }
