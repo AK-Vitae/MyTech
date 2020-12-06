@@ -21,6 +21,11 @@ struct AddListView: View {
     
     let techTypes = ["Device", "Component", "Accesory"]
     
+    @State private var errorShowing: Bool = false
+    @State private var erroTitle: String = ""
+    @State private var errorMessage: String = ""
+    
+    
     // MARK: - BODY
     var body: some View {
         NavigationView{
@@ -74,7 +79,13 @@ struct AddListView: View {
                             } catch {
                                 print(error)
                             }
+                        } else {
+                            self.errorShowing = true
+                            self.erroTitle = "Invalid Name"
+                            self.errorMessage = "Make sure to enter something for \nthe new tech item"
+                            return
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Save")
                     } //: SAVE BUTTON
@@ -89,6 +100,9 @@ struct AddListView: View {
                                     Image(systemName: "xmark")
                                 }
             )
+            .alert(isPresented: $errorShowing){
+                Alert(title: Text(erroTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
         } //: NAVIGATION
     }
 }
