@@ -20,13 +20,13 @@ struct ContentView: View {
         NavigationView{
             List {
                 ForEach(self.techs, id: \.self) { tech in
-                    HStack{
-                        Text(tech.name ?? "Unknown")
-                        
-                        Spacer()
-                        
-                        Text(tech.techType ?? "Unknown")
-                    }
+                    NavigationLink(destination: TechDetailView(tech: tech)){
+                        HStack{
+                            Text(tech.name ?? "Unknown")
+                            Spacer()
+                            Text(tech.techType ?? "Unknown")
+                        } //: HSTACK
+                    } //: NAVIGATIONLINK
                 } //: FOREACH
                 .onDelete(perform: deleteTech)
             } //: LIST
@@ -68,6 +68,5 @@ struct ContentView_Previews: PreviewProvider {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         return ContentView()
             .environment(\.managedObjectContext, context)
-            .previewDevice("iPhone 11 Pro")
     }
 }
