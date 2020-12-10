@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SettingsView: View {
-
+    
+    // MARK: - PROPERTIES
     @FetchRequest(entity: Tech.entity(), sortDescriptors: []) var techs: FetchedResults<Tech>
     @State private var isShareSheetShowing = false
-
+    
+    // MARK: - BODY
     var body: some View {
         NavigationView {
             Button(action: shareButton)
@@ -21,14 +23,15 @@ struct SettingsView: View {
                         .font(.headline)
                     Image(systemName: "square.and.arrow.up")
                         .font(.title)
-                }
-            }
-        }
+                } //: HSTACK
+            } //: BUTTON
+        } //: NAVIGATIONVIEW
         .navigationBarTitle("Settings")
     }
 
+    // MARK: - FUNCTIONS
     func shareButton() {
-        let fileName = "export.csv"
+        let fileName = "MyTech.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         var csvText = "Name,Type\n"
 
@@ -55,6 +58,7 @@ struct SettingsView: View {
 
 }
 
+// MARK: - PREVIEW
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
