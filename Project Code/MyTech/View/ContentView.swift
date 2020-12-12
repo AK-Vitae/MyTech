@@ -18,31 +18,37 @@ struct ContentView: View {
     // MARK: - BODY
     var body: some View {
         NavigationView{
-            List {
-                ForEach(self.techs, id: \.self) { tech in
-                    NavigationLink(destination: TechDetailView(tech: tech)){
-                        HStack{
-                            Text(tech.name ?? "Unknown")
-                            Spacer()
-                            Text(tech.techType ?? "Unknown")
-                        } //: HSTACK
-                    } //: NAVIGATIONLINK
-                } //: FOREACH
-                .onDelete(perform: deleteTech)
-            } //: LIST
-            .navigationBarTitle("My Tech", displayMode: .inline)
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing:
-                Button(action: {
-                    self.showingAddListView.toggle()
-                }) {
-                    Image(systemName: "plus")
-                } //: ADD BUTTON
-                    .sheet(isPresented: $showingAddListView){
-                    AddListView().environment(\.managedObjectContext, self.managedObjectContext)
+            ZStack {
+                List {
+                    ForEach(self.techs, id: \.self) { tech in
+                        NavigationLink(destination: TechDetailView(tech: tech)){
+                            HStack{
+                                Text(tech.name ?? "Unknown")
+                                Spacer()
+                                Text(tech.techType ?? "Unknown")
+                            } //: HSTACK
+                        } //: NAVIGATIONLINK
+                    } //: FOREACH
+                    .onDelete(perform: deleteTech)
+                } //: LIST
+                .navigationBarTitle("My Tech", displayMode: .inline)
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing:
+                    Button(action: {
+                        self.showingAddListView.toggle()
+                    }) {
+                        Image(systemName: "plus")
+                    } //: ADD BUTTON
+                        .sheet(isPresented: $showingAddListView){
+                        AddListView().environment(\.managedObjectContext, self.managedObjectContext)
+                    }
+                )
+                // MARK: - NO TECH ITEMS
+                if techs.count == 0 {
+                    EmptyListView()
                 }
-            )
+            } //: ZSTACK
         } //: NAVIGATION
     }
     
