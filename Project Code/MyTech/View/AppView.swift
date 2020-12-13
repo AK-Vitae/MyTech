@@ -15,11 +15,11 @@ struct AppView: View {
                     Image(systemName: "house")
                         .font(.system(size: 30))
                 }
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 30))
-                }
+//            SettingsView()
+//                .tabItem {
+//                    Image(systemName: "square.and.arrow.up")
+//                        .font(.system(size: 30))
+//                }
         }
     }
 }
