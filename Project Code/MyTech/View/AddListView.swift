@@ -30,10 +30,14 @@ struct AddListView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Form {
+                VStack(alignment: .leading, spacing: 20) {
                     Section(header: Text("Details")){
                         // MARK: - TECH NAME
                         TextField("Tech Name", text: $name)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
+                            .font(.system(size: 24, weight: .bold, design: .default))
                         
                         // MARK: - TECH TYPE
                         Picker("Tech Type", selection: $techType){
@@ -45,20 +49,35 @@ struct AddListView: View {
                         
                         // MARK: - DATE ACQUIRED
                         DatePicker("Date Acquired", selection: $dateAcquired, displayedComponents: .date)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
                         
                         // MARK: - SERIAL NUMBER
                         TextField("Serial Number", text: $serialNumber)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
                         
                         // MARK: - PRODUCT NUMBER
                         TextField("Product Number", text: $productNumber)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
                         
                         // MARK: - MODEL NUMBER
                         TextField("Model Number", text: $modelNumber)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
                     }//: Section 1
                     
                     Section(header: Text("ADDITIONAL INFORMATION")){
                         // MARK: - DETAILS
                         TextEditor(text: $text)
+                            .padding()
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(9)
                     }//: Section 2
                     
                     // MARK: - SAVE BUTTON
@@ -75,7 +94,7 @@ struct AddListView: View {
                             
                             do {
                                 try self.managedObjectContext.save()
-                                print("New Tech: \(tech.name ?? ""), Tech Type: \(tech.techType ?? "")")
+//                                print("New Tech: \(tech.name ?? ""), Tech Type: \(tech.techType ?? "")")
                             } catch {
                                 print(error)
                             }
@@ -88,8 +107,16 @@ struct AddListView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Save")
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(9)
+                            .foregroundColor(Color.white)
                     } //: SAVE BUTTON
-                } //: FORM
+                } //: VSTACK
+                .padding(.horizontal)
+                .padding(.vertical, 30)
                 Spacer()
             } //: VSTACK
             .navigationBarTitle("New Item", displayMode: .inline)
