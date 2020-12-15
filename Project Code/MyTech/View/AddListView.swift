@@ -25,13 +25,17 @@ struct AddListView: View {
     @State private var erroTitle: String = ""
     @State private var errorMessage: String = ""
     
+    init() {
+            UITextView.appearance().backgroundColor = .clear
+    }
     
     // MARK: - BODY
     var body: some View {
         NavigationView{
             VStack {
+                ScrollView{
                 VStack(alignment: .leading, spacing: 20) {
-                    Section(header: Text("Details")){
+                    Section(header: Text("DETAILS")){
                         // MARK: - TECH NAME
                         TextField("Tech Name", text: $name)
                             .padding()
@@ -118,6 +122,7 @@ struct AddListView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 30)
                 Spacer()
+                } //: SCROLLVIEW
             } //: VSTACK
             .navigationBarTitle("New Item", displayMode: .inline)
             .navigationBarItems(trailing:

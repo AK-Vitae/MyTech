@@ -21,34 +21,34 @@ struct TechDetailView: View {
                 List {
                     Section(header: Text("Details")){
                         HStack{
-                            Text("Tech Type")
+                            Text("Tech Type:")
                             Spacer()
                             Text(tech.techType ?? "")
-                                .fontWeight(.ultraLight)
+                                .fontWeight(.light)
                         }
                         HStack{
-                            Text("Date Acquired")
+                            Text("Date Acquired:")
                             Spacer()
                             Text(tech.dateAcquired ?? Date(), style: .date)
-                                .fontWeight(.ultraLight)
+                                .fontWeight(.light)
                         }
                         HStack{
-                            Text("Serial Number")
+                            Text("Serial Number:")
                             Spacer()
                             Text(tech.serialNumber ?? "")
-                                .fontWeight(.ultraLight)
+                                .fontWeight(.light)
                         }
                         HStack{
-                            Text("Product Number")
+                            Text("Product Number:")
                             Spacer()
                             Text(tech.productNumber ?? "")
-                                .fontWeight(.ultraLight)
+                                .fontWeight(.light)
                         }
                         HStack{
-                            Text("Model Number")
+                            Text("Model Number:")
                             Spacer()
                             Text(tech.modelNumber ?? "")
-                                .fontWeight(.ultraLight)
+                                .fontWeight(.light)
                         }
                     }//: SECTION 1
                     Section(header: Text("Additional Information")){
@@ -59,6 +59,7 @@ struct TechDetailView: View {
             .navigationBarHidden(true)
         } //: NAVIGATIONVIEW
         .navigationBarTitle(Text(tech.name ?? "Unknown Item"), displayMode: .inline)
+//        .navigationBarItems(trailing: EditButton())
     }
 }
 
