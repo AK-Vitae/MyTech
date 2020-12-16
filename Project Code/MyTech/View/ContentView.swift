@@ -58,13 +58,12 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .background(Circle().fill(Color("ColorBase")))
-                                .frame(width: 48, height: 48, alignment: .center)
+                                .frame(width: 80, height: 80, alignment: .center)
                                 .font(.title)
                     } //: ADD BUTTON
                 } //: ZSTACK
-                .padding(.bottom, 50)
-                .padding(.trailing, 50)
-                , alignment: .bottomTrailing
+                .shadow(radius: 4)
+                , alignment: .bottom
             )
         } //: NAVIGATION
     }
