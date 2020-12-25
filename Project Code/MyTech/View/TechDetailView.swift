@@ -17,49 +17,28 @@ struct TechDetailView: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack{
-                List {
-                    Section(header: Text("Details")){
-                        HStack{
-                            Text("Tech Type:")
-                            Spacer()
-                            Text(tech.techType ?? "")
-                                .fontWeight(.light)
-                        }
-                        HStack{
-                            Text("Date Acquired:")
-                            Spacer()
-                            Text(tech.dateAcquired ?? Date(), style: .date)
-                                .fontWeight(.light)
-                        }
-                        HStack{
-                            Text("Serial Number:")
-                            Spacer()
-                            Text(tech.serialNumber ?? "")
-                                .fontWeight(.light)
-                        }
-                        HStack{
-                            Text("Product Number:")
-                            Spacer()
-                            Text(tech.productNumber ?? "")
-                                .fontWeight(.light)
-                        }
-                        HStack{
-                            Text("Model Number:")
-                            Spacer()
-                            Text(tech.modelNumber ?? "")
-                                .fontWeight(.light)
-                        }
-                    }//: SECTION 1
-                    Section(header: Text("Additional Information")){
-                        Text(tech.text ?? "")
-                    } //: SECTION 2
-                } //: LIST
-            } //: VSTACK
-            .navigationBarHidden(true)
+            VStack(alignment: .center, spacing: 0) {
+                // MARK: - FORM
+                Form {
+                    // MARK: - SECTION 4
+                    Section(header: Text("About the application")) {
+                        DetailFormRowView(firstText: "Tech Type", secondText: Text(tech.techType ?? ""))
+                    }
+                } //: FORM
+                .listStyle(GroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
+                
+                // MARK: - FOOTER
+                Text("© SVAAR Holdings LLC.")
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .padding(.top, 6)
+                    .padding(.bottom, 8)
+                    .foregroundColor(Color.secondary)
+            }
+            .background(Color("ColorBackground").edgesIgnoringSafeArea(.all))
         } //: NAVIGATIONVIEW
         .navigationBarTitle(Text(tech.name ?? "Unknown Item"), displayMode: .inline)
-//        .navigationBarItems(trailing: EditButton())
     }
 }
 

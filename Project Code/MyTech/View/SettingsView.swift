@@ -15,7 +15,10 @@ struct SettingsView: View {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: - FORM
                 Form {
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    // MARK: - SECTION 4
+                    Section(header: Text("About the application")) {
+                        SettingsFormRowView(firstText: "Application", secondText: "MyTech")
+                    }
                 } //: FORM
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)

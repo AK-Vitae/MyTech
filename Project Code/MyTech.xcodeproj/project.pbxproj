@@ -18,6 +18,8 @@
 		4160608226DBE016009B68F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160608026DBE016009B68F8 /* ContentView.swift */; };
 		41AFBCB325D38FB40008AF9F /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFBCB225D38FB40008AF9F /* EmptyListView.swift */; };
 		41AFBCBE25D4478D0008AF9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFBCBD25D4478D0008AF9F /* SettingsView.swift */; };
+		41AFBCC725D452930008AF9F /* SettingsFormRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFBCC625D452930008AF9F /* SettingsFormRowView.swift */; };
+		41AFBCCA25D452930008AF9F /* DetailFormRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFBCC925D452930008AF9F /* DetailFormRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4160608026DBE016009B68F8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41AFBCB225D38FB40008AF9F /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		41AFBCBD25D4478D0008AF9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		41AFBCC625D452930008AF9F /* SettingsFormRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRowView.swift; sourceTree = "<group>"; };
+		41AFBCC925D452930008AF9F /* DetailFormRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFormRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				413E73CF25D2F2880017F09F /* TechDetailView.swift */,
 				41AFBCB225D38FB40008AF9F /* EmptyListView.swift */,
 				41AFBCBD25D4478D0008AF9F /* SettingsView.swift */,
+				41AFBCC625D452930008AF9F /* SettingsFormRowView.swift */,
+				41AFBCC925D452930008AF9F /* DetailFormRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AFBCCA25D452930008AF9F /* DetailFormRowView.swift in Sources */,
 				4160605F26DBE016009B68F8 /* AppDelegate.swift in Sources */,
 				4160606626DBE016009B68F8 /* MyTech.xcdatamodeld in Sources */,
 				4160608226DBE016009B68F8 /* ContentView.swift in Sources */,
@@ -175,6 +182,7 @@
 				413E73D025D2F2880017F09F /* TechDetailView.swift in Sources */,
 				4160606126DBE016009B68F8 /* SceneDelegate.swift in Sources */,
 				4160608126DBE016009B68F8 /* AddListView.swift in Sources */,
+				41AFBCC725D452930008AF9F /* SettingsFormRowView.swift in Sources */,
 				41AFBCB325D38FB40008AF9F /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
