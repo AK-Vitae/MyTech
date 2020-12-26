@@ -20,10 +20,18 @@ struct TechDetailView: View {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: - FORM
                 Form {
-                    // MARK: - SECTION 4
-                    Section(header: Text("About the application")) {
+                    // MARK: - DETAILS SECTION
+                    Section(header: Text("DETAILS")) {
                         DetailFormRowView(firstText: "Tech Type", secondText: Text(tech.techType ?? ""))
-                    }
+                        DetailFormRowView(firstText: "Date Acquired", secondText: Text(tech.dateAcquired ?? Date(), style: .date))
+                        DetailFormRowView(firstText: "Serial Number", secondText: Text(tech.serialNumber ?? ""))
+                        DetailFormRowView(firstText: "Product Number", secondText: Text(tech.productNumber ?? ""))
+                        DetailFormRowView(firstText: "Model Number", secondText: Text(tech.modelNumber ?? ""))
+                    }//: DETAILS SECTION
+                    // MARK: - ADDITONAL INFORMATION SECTION
+                    Section(header: Text("ADDITONAL INFORMATION")) {
+                        DetailFormRowAdditonalInfoView(text: Text(tech.text ?? ""))
+                    }//: ADDITONAL INFORMATION SECTION
                 } //: FORM
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
@@ -37,6 +45,7 @@ struct TechDetailView: View {
                     .foregroundColor(Color.secondary)
             }
             .background(Color("ColorBackground").edgesIgnoringSafeArea(.all))
+            .navigationBarHidden(true)
         } //: NAVIGATIONVIEW
         .navigationBarTitle(Text(tech.name ?? "Unknown Item"), displayMode: .inline)
     }
@@ -49,7 +58,12 @@ struct TechDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let tech = Tech(context: moc)
         tech.name = "Test"
+        tech.techType = "Device"
         tech.dateAcquired = Date()
+        tech.serialNumber = "123"
+        tech.productNumber = "321"
+        tech.modelNumber = "Q123"
+        tech.text = "Got last year and is currently in my room"
         
 
         return NavigationView {
