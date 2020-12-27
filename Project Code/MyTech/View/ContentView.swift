@@ -15,7 +15,6 @@ struct ContentView: View {
     
     @State private var showingAddListView: Bool = false
     @State private var isShareSheetShowing = false
-//    @State private var animatingButton: Bool = false
     
     // MARK: - BODY
     var body: some View {
@@ -37,9 +36,10 @@ struct ContentView: View {
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing:
-                    Button(action: shareButton) {
-                        Image(systemName: "square.and.arrow.up")
-                    } //: SHARE BUTTON
+                        NavigationLink(destination: SettingsView()) {
+                            Image(systemName: "gearshape")
+                                .imageScale(.large)
+                        }.buttonStyle(PlainButtonStyle())
                 )
                 // MARK: - NO TECH ITEMS
                 if techs.count == 0 {
