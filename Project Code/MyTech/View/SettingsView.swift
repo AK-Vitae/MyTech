@@ -21,11 +21,17 @@ struct SettingsView: View {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: - FORM
                 Form {
-                    // MARK: - SECTION 4
-                    Section(header: Text("About the application")) {
+                    // MARK: - SECTION ABOUT THE DEVELOPER
+                    Section(header: Text("ABOUT THE DEVELOPER")) {
+                        SettingsLinkRowView(icon: "globe", color: Color.pink, text: "Website", link: "https://eloquent-lichterman-897681.netlify.app/")
+                    }
+                    
+                    // MARK: - SECTION ABOUT THE APPLICATION
+                    Section(header: Text("ABOUT THE APPLICATION")) {
                         SettingsFormRowView(icon: "gear", firstText: "Application", secondText: "MyTech")
                         SettingsFormRowView(icon: "checkmark.seal", firstText: "Compatibility", secondText: "iPhone, iPad")
                         SettingsFormRowView(icon: "flag", firstText: "Version", secondText: "1.0.0")
+                        SettingsLinkRowView(icon: "keyboard", color: Color.gray, text: "Source Code", link: "https://github.com/AK-Vitae/MyTech")
                     }
                     
                     // MARK: - SHARE BUTTON
