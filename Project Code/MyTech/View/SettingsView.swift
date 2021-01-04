@@ -23,7 +23,7 @@ struct SettingsView: View {
                 Form {
                     // MARK: - SECTION ABOUT THE DEVELOPER
                     Section(header: Text("ABOUT THE DEVELOPER")) {
-                        SettingsLinkRowView(icon: "globe", color: Color.pink, text: "Website", link: "https://eloquent-lichterman-897681.netlify.app/")
+                        SettingsLinkRowView(icon: "globe", color: Color.blue, text: "Website", link: "https://eloquent-lichterman-897681.netlify.app/")
                     }
                     
                     // MARK: - SECTION ABOUT THE APPLICATION
