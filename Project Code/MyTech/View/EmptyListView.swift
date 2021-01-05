@@ -20,9 +20,15 @@ struct EmptyListView: View {
                     .scaledToFit()
                     .frame(minWidth: 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
                     .layoutPriority(1)
-                Text("Add some items to your list!")
+                Text("No Items!")
                     .layoutPriority(0.5)
                     .font(.system(.headline, design: .rounded))
+                    .foregroundColor(Color.gray)
+                Text("Add items by tapping \nthe plus button at the bottom")
+                    .layoutPriority(0.5)
+                    .multilineTextAlignment(.center)
+                    .font(.system(.headline, design: .rounded))
+                    .foregroundColor(Color.gray)
             } //: VSTACK
             .padding(.horizontal)
             .opacity(isAnimated ? 1 : 0)
@@ -43,6 +49,6 @@ struct EmptyListView: View {
 struct EmptyListView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyListView()
-            .environment(\.colorScheme, .dark)
+//            .environment(\.colorScheme, .dark)
     }
 }
