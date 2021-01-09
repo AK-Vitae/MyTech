@@ -11,6 +11,7 @@ struct AddListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var imageData: Data = .init(count: 0)
     @State private var name: String = ""
     @State private var serialNumber: String = ""
     @State private var productNumber: String = ""
@@ -24,6 +25,7 @@ struct AddListView: View {
     @State private var errorShowing: Bool = false
     @State private var erroTitle: String = ""
     @State private var errorMessage: String = ""
+    @State var imageShowing: Bool = false
     
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -34,6 +36,25 @@ struct AddListView: View {
         NavigationView{
             VStack {
                 ScrollView{
+                    VStack(alignment: .center){
+                        if self.imageData.count != 0 {
+                            Button (action: {
+                                self.imageShowing.toggle()
+                            }) {
+                                Image(uiImage: UIImage(data: self.imageData)!)
+                            }
+                        } else {
+                            Button(action: {
+                                self.imageShowing.toggle()
+                            }) {
+                                Image(systemName: "photo.fill")
+                                    .font(.system(size: 200))
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+//                    .padding(.horizontal)
+//                    .padding(.vertical, 30)
                 VStack(alignment: .leading, spacing: 20) {
                     Section(header: Text("DETAILS")){
                         // MARK: - TECH NAME
@@ -88,6 +109,7 @@ struct AddListView: View {
                     Button(action: {
                         if self.name != ""{
                             let tech = Tech(context: self.managedObjectContext)
+                            tech.imageData = self.imageData
                             tech.name = self.name
                             tech.techType = self.techType
                             tech.dateAcquired = self.dateAcquired
@@ -98,7 +120,6 @@ struct AddListView: View {
                             
                             do {
                                 try self.managedObjectContext.save()
-//                                print("New Tech: \(tech.name ?? ""), Tech Type: \(tech.techType ?? "")")
                             } catch {
                                 print(error)
                             }
@@ -120,7 +141,7 @@ struct AddListView: View {
                     } //: SAVE BUTTON
                 } //: VSTACK
                 .padding(.horizontal)
-                .padding(.vertical, 30)
+//                .padding(.vertical, 30)
                 Spacer()
                 } //: SCROLLVIEW
             } //: VSTACK

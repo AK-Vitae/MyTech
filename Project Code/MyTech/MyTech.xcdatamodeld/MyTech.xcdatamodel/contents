@@ -3,6 +3,7 @@
     <entity name="Tech" representedClassName="Tech" syncable="YES" codeGenerationType="class">
         <attribute name="dateAcquired" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="modelNumber" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="productNumber" optional="YES" attributeType="String"/>
@@ -11,6 +12,6 @@
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Tech" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Tech" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>
