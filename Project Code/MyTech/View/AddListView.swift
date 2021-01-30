@@ -42,6 +42,11 @@ struct AddListView: View {
                                 self.imageShowing.toggle()
                             }) {
                                 Image(uiImage: UIImage(data: self.imageData)!)
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(minWidth: 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
+                                    .cornerRadius(6)
                             }
                         } else {
                             Button(action: {
@@ -53,8 +58,11 @@ struct AddListView: View {
                             }
                         }
                     }
+                    .sheet(isPresented: self.$imageShowing, content: {
+                        ImagePicker(show: self.$imageShowing, image: self.$imageData)
+                    })
 //                    .padding(.horizontal)
-//                    .padding(.vertical, 30)
+                    .padding(.vertical, 30)
                 VStack(alignment: .leading, spacing: 20) {
                     Section(header: Text("DETAILS")){
                         // MARK: - TECH NAME

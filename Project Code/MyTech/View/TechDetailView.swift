@@ -20,6 +20,20 @@ struct TechDetailView: View {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: - FORM
                 Form {
+                    // MARK: - VSTACK FOR IMAGE
+                    VStack {
+                        if tech.imageData == nil {
+                            Text("No Image Added")
+                        } else {
+                            Image(uiImage: UIImage(data: tech.imageData ?? .init(count: 0))!)
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(minWidth: 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
+                                    .cornerRadius(6)
+                        }
+                    } //: VSTACK FOR IMAGE
+                    .padding(.vertical, 30)
                     // MARK: - DETAILS SECTION
                     Section(header: Text("DETAILS")) {
                         DetailFormRowView(firstText: "Tech Type", secondText: Text(tech.techType ?? ""))
