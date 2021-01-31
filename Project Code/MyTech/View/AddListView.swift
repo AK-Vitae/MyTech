@@ -19,6 +19,7 @@ struct AddListView: View {
     @State private var dateAcquired: Date = Date()
     @State private var text = ""
     @State private var techType: String = "Device"
+    @State var sourceType:UIImagePickerController.SourceType = .camera
     
     let techTypes = ["Device", "Component", "Accesory"]
     
@@ -26,6 +27,8 @@ struct AddListView: View {
     @State private var erroTitle: String = ""
     @State private var errorMessage: String = ""
     @State var imageShowing: Bool = false
+    @State var showActionSheet = false
+    @State var showImagePicker = false
     
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -38,29 +41,56 @@ struct AddListView: View {
                 ScrollView{
                     VStack(alignment: .center){
                         if self.imageData.count != 0 {
-                            Button (action: {
-                                self.imageShowing.toggle()
-                            }) {
+//                            Button (action: {
+//                                self.imageShowing.toggle()
+////                                self.showActionSheet = true
+//                            }) {
                                 Image(uiImage: UIImage(data: self.imageData)!)
                                     .renderingMode(.original)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(minWidth: 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
                                     .cornerRadius(6)
-                            }
+//                            }
                         } else {
-                            Button(action: {
-                                self.imageShowing.toggle()
-                            }) {
+//                            Button(action: {
+//                                self.imageShowing.toggle()
+////                                self.showActionSheet = true
+//                            }) {
                                 Image(systemName: "photo.fill")
                                     .font(.system(size: 200))
                                     .foregroundColor(.gray)
-                            }
+//                            }
                         }
+                        Button(action: {
+//                            self.imageShowing.toggle()
+                            self.showActionSheet = true
+                        }) {
+                            Text("Show Image Picker")
                     }
-                    .sheet(isPresented: self.$imageShowing, content: {
-                        ImagePicker(show: self.$imageShowing, image: self.$imageData)
-                    })
+                        .actionSheet(isPresented: $showActionSheet){
+                        ActionSheet(title: Text("Add a picture to your post"), message: nil, buttons: [
+                            // MARK: - CAMERA
+                            .default(Text("Camera"), action: {
+//                                self.showImagePicker = true
+                                self.imageShowing = true
+                                self.sourceType = .camera
+                            }),
+                            // MARK: - PHOTO LIBRARY
+                            .default(Text("Photo Library"), action: {
+//                                self.showImagePicker = true
+                                self.imageShowing = true
+                                self.sourceType = .photoLibrary
+                            }),
+                            // MARK: - CANCEL
+                            .cancel()
+
+                        ])
+                    } //: ACTIONSHEET
+                        .sheet(isPresented: self.$imageShowing, content: {
+                        ImagePicker(show: self.$imageShowing, image: self.$imageData, sourceType: self.sourceType)
+                    }) //: SHEET
+                    } //: SCROLLVIEW
 //                    .padding(.horizontal)
                     .padding(.vertical, 30)
                 VStack(alignment: .leading, spacing: 20) {

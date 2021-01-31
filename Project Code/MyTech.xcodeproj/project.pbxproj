@@ -78,13 +78,13 @@
 			children = (
 				4160605E26DBE016009B68F8 /* AppDelegate.swift */,
 				4160606026DBE016009B68F8 /* SceneDelegate.swift */,
+				416A76D825D59D3A00D6447F /* ImagePicker.swift */,
 				4160607E26DBE016009B68F8 /* View */,
 				4160606726DBE016009B68F8 /* Assets.xcassets */,
 				4160606C26DBE016009B68F8 /* LaunchScreen.storyboard */,
 				4160606F26DBE016009B68F8 /* Info.plist */,
 				4160606426DBE016009B68F8 /* MyTech.xcdatamodeld */,
 				4160606926DBE016009B68F8 /* Preview Content */,
-				416A76D825D59D3A00D6447F /* ImagePicker.swift */,
 			);
 			path = MyTech;
 			sourceTree = "<group>";

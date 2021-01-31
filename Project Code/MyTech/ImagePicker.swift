@@ -12,6 +12,8 @@ struct ImagePicker: UIViewControllerRepresentable {
     // MARK: - PROPERTIES
     @Binding var show: Bool
     @Binding var image: Data
+    
+    var sourceType:UIImagePickerController.SourceType = .photoLibrary
 
     // MARK: - FUNCTIONS
     func makeCoordinator() -> ImagePicker.Coordinator {
@@ -20,14 +22,12 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
+        picker.sourceType = sourceType
         picker.delegate = context.coordinator
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-//        function body
-    }
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
     
     // MARK: - CLASSES
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -51,11 +51,3 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-
-// MARK: - PREVIEW
-//struct ImagePicker_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImagePicker()
-//    }
-//}
