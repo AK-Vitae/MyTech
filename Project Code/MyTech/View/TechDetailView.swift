@@ -24,6 +24,7 @@ struct TechDetailView: View {
                     VStack {
                         if tech.imageData == nil {
                             Text("No Image Added")
+//                                .multilineTextAlignment(.center)
                         } else {
                             Image(uiImage: UIImage(data: tech.imageData ?? .init(count: 0))!)
                                     .renderingMode(.original)
