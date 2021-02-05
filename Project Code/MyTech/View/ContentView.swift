@@ -25,13 +25,23 @@ struct ContentView: View {
                         NavigationLink(destination: TechDetailView(tech: tech)){
                             HStack{
                                 Text(tech.name ?? "Unknown")
+                                    .fontWeight(.semibold)
                                 Spacer()
                                 Text(tech.techType ?? "Unknown")
+                                    .font(.footnote)
+                                    .foregroundColor(Color(UIColor.systemGray2))
+                                    .padding(3)
+                                    .frame(minWidth: 62)
+                                    .overlay(
+                                        Capsule().stroke(Color(UIColor.systemGray2), lineWidth: 0.75)
+                                    )
                             } //: HSTACK
+                            .padding(.vertical, 10)
                         } //: NAVIGATIONLINK
                     } //: FOREACH
                     .onDelete(perform: deleteTech)
                 } //: LIST
+                .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle("My Tech", displayMode: .inline)
                 .navigationBarItems(
                     leading: EditButton(),
