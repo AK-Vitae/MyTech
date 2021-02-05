@@ -21,12 +21,13 @@ struct TechDetailView: View {
                 // MARK: - FORM
                 Form {
                     // MARK: - VSTACK FOR IMAGE
-                    VStack {
-                        if tech.imageData == nil {
+                    VStack(alignment: .center, spacing: 0) {
+                        if tech.imageData?.count == 0 {
                             Text("No Image Added")
-//                                .multilineTextAlignment(.center)
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         } else {
-                            Image(uiImage: UIImage(data: tech.imageData ?? .init(count: 0))!)
+
+                            Image(uiImage: UIImage(data: tech.imageData ?? Data()) ?? UIImage())
                                     .renderingMode(.original)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -50,14 +51,6 @@ struct TechDetailView: View {
                 } //: FORM
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
-                
-                // MARK: - FOOTER
-                Text("© SVAAR Holdings LLC.")
-                    .multilineTextAlignment(.center)
-                    .font(.footnote)
-                    .padding(.top, 6)
-                    .padding(.bottom, 8)
-                    .foregroundColor(Color.secondary)
             }
             .background(Color("ColorBackground").edgesIgnoringSafeArea(.all))
             .navigationBarHidden(true)
