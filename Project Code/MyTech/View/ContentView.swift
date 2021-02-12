@@ -93,32 +93,6 @@ struct ContentView: View {
         }
     }
     
-    func shareButton() {
-        let fileName = "MyTech.csv"
-        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-        var csvText = "Name,Type,Date Acquired, Serial Number, Product Number, Model Number, Additional Information\n"
-
-        for tech in techs {
-            csvText += "\(tech.name ?? "Unknown"),\(tech.techType ?? ""),\(tech.dateAcquired ?? Date()),\(tech.serialNumber ?? ""),\(tech.productNumber ?? ""),\(tech.modelNumber ?? ""),\(tech.text ?? "")\n"
-        }
-        do {
-            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-            print("Failed to create file")
-            print("\(error)")
-        }
-        print(path ?? "not found")
-
-        var filesToShare = [Any]()
-        filesToShare.append(path!)
-
-        let av = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
-
-        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
-
-        isShareSheetShowing.toggle()
-    }
-    
 }
 
 // MARK: - PREVIEW

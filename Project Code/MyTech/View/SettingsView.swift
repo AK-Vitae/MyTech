@@ -63,6 +63,7 @@ struct SettingsView: View {
         .navigationBarTitle("Settings", displayMode: .inline)
     }
     
+    // MARK: - FUNCTIONS
     func shareButton() {
         let fileName = "MyTech.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
