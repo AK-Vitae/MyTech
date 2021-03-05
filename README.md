@@ -1,8 +1,8 @@
 
 
-| Empty List View                                              | Add an Item                                                  | List View                                                    | Settings View                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%201.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%204.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%205.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%207.jpg) |
+| Empty List View                                              | Add an Item                                                  | Add an Image                                                 | List View                                                    | Settings View                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%201.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%204.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%203.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%205.jpg) | ![](https://github.com/AK-Vitae/MyTech/blob/main/Screenshots/Multidevice%20Screenshots/6.5-inch%20Screenshot%207.jpg) |
 
 
 
