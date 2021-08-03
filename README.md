@@ -24,4 +24,4 @@ The motivation for this project stemmed from both situational and personal inter
 
 ## Installation Instructions
 
-For now, MyTech can only be downloaded on iOS devices from the App Store.
+For now, MyTech can only be downloaded on iOS devices from the [App Store](https://apps.apple.com/us/app/mytech-inventory/id1579199307).
